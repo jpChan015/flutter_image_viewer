@@ -279,9 +279,17 @@ open class LightboxController: UIViewController {
     let headerViewHeight = headerView.closeButton.frame.height > headerView.deleteButton.frame.height
       ? headerView.closeButton.frame.height
       : headerView.deleteButton.frame.height
+    
+    var topPadding = 16
+    var bottomPadding = 0
+    if #available(iOS 11.0, *) {
+        let window = UIApplication.shared.windows[0]
+        topPadding = window.safeAreaInsets.top
+        bottomPadding = window.safeAreaInsets.bottom
+    }
 
-    headerView.frame = CGRect(x: 0, y: 16, width: bounds.width, height: headerViewHeight)
-    footerView.frame = CGRect(x: 0, y: 0, width: bounds.width, height: 70)
+    headerView.frame = CGRect(x: 0, y: topPadding, width: bounds.width, height: headerViewHeight)
+    footerView.frame = CGRect(x: 0, y: bottomPadding, width: bounds.width, height: 70)
 
     //[headerView, footerView].forEach { ($0 as AnyObject).configureLayout() }
 
