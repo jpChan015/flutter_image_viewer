@@ -280,8 +280,8 @@ open class LightboxController: UIViewController {
       ? headerView.closeButton.frame.height
       : headerView.deleteButton.frame.height
     
-    var topPadding = 16
-    var bottomPadding = 0
+    var topPadding: CGFloat = 16
+    var bottomPadding: CGFloat = 0
     if #available(iOS 11.0, *) {
         let window = UIApplication.shared.windows[0]
         topPadding = window.safeAreaInsets.top
