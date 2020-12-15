@@ -293,7 +293,7 @@ open class LightboxController: UIViewController {
 
     //[headerView, footerView].forEach { ($0 as AnyObject).configureLayout() }
 
-    footerView.frame.origin.y = bounds.height - footerView.frame.height
+    footerView.frame.origin.y = bounds.height - bottomPadding - footerView.frame.height
 
     overlayView.frame = scrollView.frame
     overlayView.resizeGradientLayer()
